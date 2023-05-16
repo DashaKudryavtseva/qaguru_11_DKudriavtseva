@@ -1,9 +1,12 @@
 import allure
 from selene import browser
-
+from utilites import attach
 from qaguru_11_DK.pages.registration_page import RegistrationPage
 
 
+@allure.tag('web')
+@allure.label('owner', 'Daria Kudriavtseva')
+@allure.title('Успешная регистрация')
 def test_fill_registration_form(browser_configuration):
     registration_page = RegistrationPage()
 
@@ -61,3 +64,6 @@ def test_fill_registration_form(browser_configuration):
             "Sport Street, 140",
             "NCR Delhi",
         )
+
+
+
