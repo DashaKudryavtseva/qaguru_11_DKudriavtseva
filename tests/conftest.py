@@ -1,6 +1,8 @@
 import pytest
 from selene import browser
 
+from utilites import attach
+
 
 @pytest.fixture
 def browser_configuration():
@@ -10,5 +12,7 @@ def browser_configuration():
     browser.config.window_width = 720
 
     yield
-
+    attach.add_screenshot(browser)
+    attach.add_logs(browser)
+    attach.add_html(browser)
     browser.quit()
