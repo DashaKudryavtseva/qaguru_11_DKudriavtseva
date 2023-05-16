@@ -4,7 +4,7 @@ from selene import browser
 from qaguru_11_DK.pages.registration_page import RegistrationPage
 
 
-def test_fill(browser_configuration):
+def test_fill_registration_form(browser_configuration):
     registration_page = RegistrationPage()
 
     with allure.step('Открытие страницы регистрации'):
