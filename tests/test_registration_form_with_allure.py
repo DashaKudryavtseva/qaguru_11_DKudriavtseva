@@ -1,8 +1,7 @@
 import allure
+
 from selene import browser
 from qaguru_11_DK.pages.registration_page import RegistrationPage
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 
 
 @allure.tag('web')
@@ -10,19 +9,6 @@ from selenium.webdriver.chrome.options import Options
 @allure.title('Успешная регистрация')
 def test_fill_registration_form(browser_configuration):
     registration_page = RegistrationPage()
-
-    options = Options()
-    selenoid_capabilities = {
-        "browserName": "chrome",
-        "browserVersion": "100.0",
-        "selenoid:options": {"enableVNC": True, "enableVideo": True},
-    }
-    options.capabilities.update(selenoid_capabilities)
-    driver = webdriver.Remote(
-        command_executor="https://user1:1234@selenoid.autotests.cloud/wd/hub",
-        options=options,
-    )
-    browser.config.driver = driver
 
     with allure.step('Открытие страницы регистрации'):
         browser.open("/automation-practice-form")
